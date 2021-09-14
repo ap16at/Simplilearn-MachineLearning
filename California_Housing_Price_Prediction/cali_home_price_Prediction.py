@@ -19,6 +19,7 @@
 import pandas as pd
 import numpy as np
 import math
+from sklearn import preprocessing
 
 from sklearn.preprocessing import LabelEncoder,StandardScaler
 from sklearn.linear_model import LinearRegression,Ridge,Lasso,ElasticNet
@@ -86,7 +87,18 @@ print(sqrt(mean_squared_error(y_test,y_predict)))
 print(r2_score(y_test,y_predict))
 
 # 7. Perform Decision Tree Regression:
+dtreg = DecisionTreeRegressor()
+dtreg.fit(x_train, y_train)
+DecisionTreeRegressor(criterion='mse', max_depth=None, max_features=None, 
+                        max_leaf_nodes=None, min_impurity_decrease=0.0, 
+                        min_impurity_split=None, min_samples_leaf=1, 
+                        min_samples_split=2, min_weight_fraction_leaf=0.0, 
+                        random_state=None, splitter='best')
 
+y_predict = dtreg.predict(x_test)
+
+print(sqrt(mean_squared_error(y_test,y_predict)))
+print(r2_score(y_test,y_predict))
 
 # 8. Perform Random Forest Regression:
 # 9. Perform Linear Regression with one independent variable :
