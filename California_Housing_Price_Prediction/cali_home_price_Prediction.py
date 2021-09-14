@@ -55,7 +55,25 @@ le = LabelEncoder()
 df['ocean_proximity'] = le.fit_transform(df['ocean_proximity'])
 
 # 4. Split the dataset:
+X_Features=['longitude', 'latitude', 'housing_median_age', 'total_rooms',
+       'total_bedrooms', 'population', 'households', 'median_income',
+       'ocean_proximity']
+X=df[X_Features]
+Y=df['median_house_value']
+
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test = train_test_split(X,Y,test_size=0.2,random_state=1)
+
+print(x_train.shape, y_train.shape)
+print(x_test.shape, y_test.shape)
+
 # 5. Standardize data:
+col_names = df.columns
+scaler = StandardScaler()
+scaled_df = scaler.fit_transform(df)
+scaled_df = pd.DataFrame(scaled_df, col_names)
+print(scaled_df.head())
+
 # 6. Perform Linear Regression:
 # 7. Perform Decision Tree Regression:
 # 8. PerformRandom Forest Regression:
