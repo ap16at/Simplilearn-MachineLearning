@@ -24,6 +24,7 @@ from sklearn import preprocessing
 from sklearn.preprocessing import LabelEncoder,StandardScaler
 from sklearn.linear_model import LinearRegression,Ridge,Lasso,ElasticNet
 from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
 import statsmodels.formula.api as smf
 
 from sklearn.metrics import mean_squared_error,r2_score
@@ -101,4 +102,19 @@ print(sqrt(mean_squared_error(y_test,y_predict)))
 print(r2_score(y_test,y_predict))
 
 # 8. Perform Random Forest Regression:
+rfreg = RandomForestRegressor()
+rfreg.fit(x_train, y_train)
+RandomForestRegressor(bootstrap=True, criterion='mse', max_depth=None,
+                        max_features='auto', max_leaf_nodes=None,
+                        min_impurity_decrease=0.0, min_impurity_split=None,
+                        min_samples_leaf=1, min_samples_split=2,
+                        min_weight_fraction_leaf=0.0, n_estimators=10,
+                        n_jobs=None, oob_score=False, random_state=None,
+                        verbose=0, warm_start=False)
+
+y_predict = rfreg.predict(x_test)
+
+print(sqrt(mean_squared_error(y_test,y_predict)))
+print(r2_score(y_test,y_predict))
+
 # 9. Perform Linear Regression with one independent variable :
