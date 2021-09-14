@@ -18,14 +18,11 @@
 # importing the necessary libraries
 import pandas as pd
 import numpy as np
-import math
-from sklearn import preprocessing
 
 from sklearn.preprocessing import LabelEncoder,StandardScaler
-from sklearn.linear_model import LinearRegression,Ridge,Lasso,ElasticNet
+from sklearn.linear_model import LinearRegression
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
-import statsmodels.formula.api as smf
 
 from sklearn.metrics import mean_squared_error,r2_score
 from math import sqrt
@@ -118,3 +115,16 @@ print(sqrt(mean_squared_error(y_test,y_predict)))
 print(r2_score(y_test,y_predict))
 
 # 9. Perform Linear Regression with one independent variable :
+x_train_income = x_train[['median_income']]
+x_test_income = x_test[['median_income']]
+
+print(x_train_income.shape)
+print(y_train.shape)
+
+linreg = LinearRegression()
+linreg.fit(x_train_income, y_train)
+y_predict = linreg.predict(x_test_income)
+
+print(linreg.intercept_, linreg.coef_)
+print(sqrt(mean_squared_error(y_test,y_predict)))
+print(r2_score(y_test,y_predict))
