@@ -71,7 +71,7 @@ print(x_test.shape, y_test.shape)
 col_names = df.columns
 scaler = StandardScaler()
 scaled_df = scaler.fit_transform(df)
-scaled_df = pd.DataFrame(scaled_df, col_names)
+scaled_df = pd.DataFrame(scaled_df, columns=col_names)
 print(scaled_df.head())
 
 # 6. Perform Linear Regression:
