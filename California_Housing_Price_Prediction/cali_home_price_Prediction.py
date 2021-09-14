@@ -18,6 +18,7 @@
 # importing the necessary libraries
 import pandas as pd
 import numpy as np
+import math
 
 from sklearn.preprocessing import LabelEncoder,StandardScaler
 from sklearn.linear_model import LinearRegression,Ridge,Lasso,ElasticNet
@@ -36,3 +37,23 @@ warnings.filterwarnings('ignore')
 from matplotlib.axes._axes import _log as matplotlib_axes_logger
 matplotlib_axes_logger.setLevel('ERROR')
 
+# 1. Load the data:
+df = pd.read_excel("cali_housing.xlsx")
+print(df.head())
+
+print(df.columns)
+
+# 2. Handle missing values:
+print(df.isnull().sum())
+
+### 207 null values found in 'total_bedrooms' -> replace them with the mean
+df.total_bedrooms = df.total_bedrooms.fillna(df.total_bedrooms.mean())
+print(df.isnull().sum())
+
+# 3. Encode categroical data:
+# 4. Split the dataset:
+# 5. Standardize data:
+# 6. Perform Linear Regression:
+# 7. Perform Decision Tree Regression:
+# 8. PerformRandom Forest Regression:
+# 9. Perform Linear Regression with one independent variable :
