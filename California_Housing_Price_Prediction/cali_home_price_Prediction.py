@@ -51,6 +51,9 @@ df.total_bedrooms = df.total_bedrooms.fillna(df.total_bedrooms.mean())
 print(df.isnull().sum())
 
 # 3. Encode categroical data:
+le = LabelEncoder()
+df['ocean_proximity'] = le.fit_transform(df['ocean_proximity'])
+
 # 4. Split the dataset:
 # 5. Standardize data:
 # 6. Perform Linear Regression:
