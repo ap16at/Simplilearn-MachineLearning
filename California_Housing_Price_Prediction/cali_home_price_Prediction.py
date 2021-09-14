@@ -75,6 +75,18 @@ scaled_df = pd.DataFrame(scaled_df, columns=col_names)
 print(scaled_df.head())
 
 # 6. Perform Linear Regression:
+linreg = LinearRegression()
+linreg.fit(x_train, y_train)
+
+LinearRegression(copy_X=True, fit_intercept=True, n_jobs=None, normalize=False)
+
+y_predict = linreg.predict(x_test)
+
+print(sqrt(mean_squared_error(y_test,y_predict)))
+print(r2_score(y_test,y_predict))
+
 # 7. Perform Decision Tree Regression:
-# 8. PerformRandom Forest Regression:
+
+
+# 8. Perform Random Forest Regression:
 # 9. Perform Linear Regression with one independent variable :
